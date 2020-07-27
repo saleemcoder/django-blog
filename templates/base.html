@@ -27,11 +27,11 @@
                     <a href="tel:+1 514-286-4242" class="d-inline-block bg-gray"><i class="fa fa-phone pr-3"></i>+1 514-286-4242 </a></a>
                 </div>
                 <div class="col-lg-6  d-lg-block d-none text-right">
-                    <a href="#0" class="d-inline-block mr-2"><img src="{% static 'images/icon-facebook.png' %}" width="30"></a></a>
-                    <a href="#0" class="d-inline-block mr-2"><img src="{% static 'images/icon-instagram.png' %}" width="30"></a></a>
-                    <a href="#0" class="d-inline-block mr-2"><img src="{% static 'images/icon-linkedin.png' %}" width="30"></a></a>
-                    <a href="#0" class="d-inline-block mr-2"><img src="{% static 'images/icon-twitter.png' %}" width="30"></a></a>
-                    <a href="#0" class="d-inline-block "><img src="{% static 'images/icon-youtube.png' %}" width="30"></a></a>
+                    <a href="https://www.facebook.com/crmbase" class="d-inline-block mr-2"><img src="{% static 'images/icon-facebook.png' %}" width="30"></a></a>
+                    <a href="https://www.instagram.com/crmbase.io/" class="d-inline-block mr-2"><img src="{% static 'images/icon-instagram.png' %}" width="30"></a></a>
+                    <a href="https://www.linkedin.com/company/crmbase" class="d-inline-block mr-2"><img src="{% static 'images/icon-linkedin.png' %}" width="30"></a></a>
+                    <a href="https://twitter.com/CrmBase" class="d-inline-block mr-2"><img src="{% static 'images/icon-twitter.png' %}" width="30"></a></a>
+                    <a href="https://www.youtube.com/channel/UCSc9C_08jtC-tAeRAHOBOwQ" class="d-inline-block "><img src="{% static 'images/icon-youtube.png' %}" width="30"></a></a>
                 </div>
             </div>
         </div>
@@ -43,18 +43,18 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white ">
         <div class="container">	
             
-            <a class="navbar-brand d-block" href="index.html"><img src="{% static 'images/logo.png' %}" class="logo"> </a>
+            <a class="navbar-brand d-block" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" class="logo"> </a>
                 
             <div class="collapse navbar-collapse" id="navbarSupportedContent ">
                 <ul class="navbar-nav ml-auto font-weight-bold d-lg-flex d-none">
                     <li class="nav-item">
-                        <a class="nav-link" href="blogs.html">Blogs</a>
+                        <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="about-us.html">About us</a>
+                        <a class="nav-link"  href="{% url 'about-us' %}">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-0" href="contact-us.html">Contact</a>
+                        <a class="nav-link mr-0" href="{% url 'contact-us' %}">Contact</a>
                     </li>
                     
                 </ul>	
