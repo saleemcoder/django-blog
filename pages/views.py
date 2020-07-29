@@ -8,6 +8,3 @@ def about(request):
 
 def contact(request):
     return render(request, 'pages/contact-us.html')
-
-def blogs(request):
-    return render(request, 'pages/blogs.html')
