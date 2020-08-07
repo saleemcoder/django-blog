@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 <!------------------top-Banner---------------------->
@@ -12,121 +13,42 @@
 		</div>
 	</div>
 </section>
-<!-------------------movie-blog-post---------------------->
+<!-------------------blog-post---------------------->
 <section class="blog border-bottom sec-padding">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 my-3">
-				<div class="single-item w-100">
-					<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({% static 'images/blog-1.jpg' %})" >
-					<p class="m-0 p-3">Date: .09 Oct 2016</p>
-					<div class="text text-md-left text-center px-3">
-						<h5 class="">Top Design trend is hear</h5>
-						<p class="text-gray">
-						There are many variations of dummy passagesare many variations 
-						of dummy passages of Lorem Ipsum a available, but the majority have</p>
-					</div>
-					<div class="footer pl-3 pb-3 pt-3 border-top">
-						<a href="blogs-detail.html" class="my-btn ">READ MORE</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 my-3">
-				<div class="single-item">
-					<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({% static 'images/blog-2.jpg' %})" >
-					<p class="m-0 p-3">Date: .09 Oct 2016</p>
-					<div class="text text-md-left text-center px-3">
-						<h5 class="">Top Design trend is hear</h5>
-						<p class="text-gray">There are many variations of dummy passagesare many variations of dummy passages of Lorem Ipsum a available, but the majority have</p>
-					</div>
-					<div class="footer pl-3 pb-3 pt-3 border-top">
-						<a href="blogs-detail.html" class="my-btn ">READ MORE</a>
+
+			{% if posts %}
+				{% for post in posts %}
+					<div class="col-lg-4 my-3">
+						<div class="single-item w-100">
+							<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({{post.photo.url}})" >
+							<p class="m-0 p-3">Posted: {{ post.date | naturaltime}}</p>
+							<div class="text text-md-left text-center px-3">
+								<h5 class="">{{post.title}}</h5>
+								<p class="text-gray">
+								There are many variations of dummy passagesare many variations 
+								of dummy passages of Lorem Ipsum a available, but the majority have</p>
+							</div>
+							<div class="footer pl-3 pb-3 pt-3 border-top">
+								<a href="{% url 'blogpost' post.id %}" class="my-btn ">READ MORE</a>
+							</div>
+						</div>
+					</div>		
+				{% endfor %}
+			{% else %}
+				<div class="col-lg-12">
+					<div class="alert alert-danger">
+						No Post Found in Database
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-4 my-3">
-				<div class="single-item">
-					<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({% static 'images/blog-3.jpg' %})" >
-					
-					<p class="m-0 p-3">Date: .09 Oct 2016</p>
-					<div class="text text-md-left text-center px-3">
-						<h5 class="">Top Design trend is hear</h5>
-						<p class="text-gray">There are many variations of dummy passagesare many variations of dummy passages of Lorem Ipsum a available, but the majority have</p>
-					</div>
-					<div class="footer pl-3 pb-3 pt-3 border-top">
-						<a href="blogs-detail.html" class="my-btn ">READ MORE</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 my-3">
-				<div class="single-item ">
-					<div class="head">
-						<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({% static 'images/blog-1.jpg' %})" >
-					</div>
-					<p class="m-0 p-3">Date: .09 Oct 2016</p>
-					<div class="text text-md-left text-center px-3">
-						<h5 class="">Top Design trend is hear</h5>
-						<p class="text-gray">
-						There are many variations of dummy passagesare many variations 
-						of dummy passages of Lorem Ipsum a available, but the majority have</p>
-					</div>
-					<div class="footer pl-3 pb-3 pt-3 border-top">
-						<a href="blogs-detail.html" class="my-btn ">READ MORE</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 my-3">
-				<div class="single-item">
-					<div class="head">
-						<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({% static 'images/blog-2.jpg' %})" >
-					</div>
-					<p class="m-0 p-3">Date: .09 Oct 2016</p>
-					<div class="text text-md-left text-center px-3">
-						<h5 class="">Top Design trend is hear</h5>
-						<p class="text-gray">There are many variations of dummy passagesare many variations of dummy passages of Lorem Ipsum a available, but the majority have</p>
-					</div>
-					<div class="footer pl-3 pb-3 pt-3 border-top">
-						<a href="blogs-detail.html" class="my-btn ">READ MORE</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 my-3">
-				<div class="single-item">
-					<div class="head">
-						<img src="{% static 'images/thumnail-2.png' %}" class="w-100" style="background-image:url({% static 'images/blog-3.jpg' %})" >
-					</div>
-					<p class="m-0 p-3">Date: .09 Oct 2016</p>
-					<div class="text text-md-left text-center px-3">
-						<h5 class="">Top Design trend is hear</h5>
-						<p class="text-gray">There are many variations of dummy passagesare many variations of dummy passages of Lorem Ipsum a available, but the majority have</p>
-					</div>
-					<div class="footer pl-3 pb-3 pt-3 border-top">
-						<a href="blogs-detail.html" class="my-btn ">READ MORE</a>
-					</div>
-				</div>
-			</div>
+			{% endif %}
+
+			
 		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<nav class=" mt-4">
-				  <ul class="pagination justify-content-center align-items-center">
-					<li class="page-item">
-					  <a class="page-link text-dark" href="#" tabindex="-1"><i class="fa fa-angle-double-left "></i></a>
-					</li>
-					<li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-					<li class="page-item"><a class="page-link text-dark" href="#">...</a></li>
-					<li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-					<li class="page-item active"><a class="page-link text-white" href="#">4</a></li>
-					<li class="page-item"><a class="page-link text-dark" href="#">5</a></li>
-					<li class="page-item"><a class="page-link text-dark" href="#">...</a></li>
-					
-					<li class="page-item"><a class="page-link text-dark" href="#">51</a></li>
-					<li class="page-item">
-					  <a class="page-link text-dark" href="#"><i class="fa fa-angle-double-right "></i></a>
-					</li>
-				  </ul>
-				</nav>
-			</div>
+
+
+		
 		</div>
 		
 	</div>
