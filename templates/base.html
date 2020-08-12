@@ -37,7 +37,6 @@
         </div>
     </section>
     
-    <div class="nav-head" style="height:80px;">
     
     <!------------------navbar---------------------->
     <nav class="navbar navbar-expand-md navbar-light bg-white ">
@@ -57,7 +56,35 @@
                         <a class="nav-link mr-0" href="{% url 'contact-us' %}">Contact</a>
                     </li>
                     
-                </ul>	
+                </ul>
+
+                {% if user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto">  
+                        <li class="nav-item active mr-3"> 
+                            <b> Welcome {{user.username}} </b>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                            <form action="{% url 'logout' %}" method="POST" id="logout">
+                                {% csrf_token %}
+                                <input type="hidden">
+                            </form>
+                        
+                        </li>
+                    </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active mr-3">
+                      <a class="nav-link" href="{% url 'register' %}">
+                        <i class="fa fa-user"></i> Register</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                      <a class="nav-link" href="{% url 'login' %}">
+                        <i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                  </ul>	
+                {% endif %}
+
             </div>
                 
             <div class="icons d-lg-inline-flex align-items-center pl-2">
@@ -66,7 +93,9 @@
             </div>
         </div>
     </nav>
+    
     </div>
+    
     <!------------------side-menu---------------------->
     <div class="side-menu">
         <a href="#0" class="d-flex px-4 py-3 font-weight-bold">Blog</a>

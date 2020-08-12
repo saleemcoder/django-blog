@@ -11,12 +11,15 @@ def index(request):
     return render(request, 'post/post.html', context)
 
 def blogpost(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
-
+    post = get_object_or_404(Post, pk=post_id) 
     context = {
         'post' : post
     }
+
+    #return render(request, 'post/blogpost.html', {"ziplist":ziplist})
     return render(request, 'post/blogpost.html', context)
+
+
 
 #def search(request):
 #    return render(request, 'post/search.html')
