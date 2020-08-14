@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Comment
+from .models import Cmt
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('id','post_title','date')
@@ -7,4 +7,4 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ('post_title', 'comment')
     list_per_page = 10
 
-admin.site.register(Comment, CommentAdmin)
+admin.site.register(Cmt, CommentAdmin)
