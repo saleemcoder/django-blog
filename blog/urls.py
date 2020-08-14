@@ -8,6 +8,6 @@ urlpatterns = [
     path('',include('pages.urls')),
     path('post/',include('post.urls')),
     path('accounts/',include('accounts.urls')),
-    path('comments/',include('comments.urls')),
+    path('cmt/',include('cmt.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
