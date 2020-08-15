@@ -26,10 +26,10 @@ def blogpost(request, post_id):
     if request.method == 'POST':
         comment = request.POST['comment']
         post_id = request.POST['post_id']
-        user_id = request.POST['user_id']
+        user_name = request.POST['user_name']
         post_title = request.POST['post_title']
         
-        query = Cmt(post_id=post_id, user_id=user_id, post_title=post_title, comment=comment)
+        query = Cmt(post_id=post_id, user_name=user_name, post_title=post_title, comment=comment)
 
         query.save();
 

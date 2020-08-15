@@ -27,19 +27,24 @@
 					<div class="col-lg-12">
 						<h4>Post Comments</h4>
 						{% include 'alert.html' %}
-						<form action="" method="POST">
-							{% csrf_token %}
-							<textarea name="comment"  class="form-control" rows=9 required></textarea> <br>
-							<input type="hidden" name="post_id" value="{{ post.id }}">
-							<input type="hidden" name="user_id" value="{{ user.id }}">
-							<input type="hidden" name="post_title" value="{{ post.title }}">
-							<input type="submit" name="submit" value="Post Your Comment" class="btn btn-primary btn-block">
-						</form>
+						{% if user.is_authenticated %}
+							<form action="" method="POST">
+								{% csrf_token %}
+								<textarea name="comment"  class="form-control" rows=9 required></textarea> <br>
+								<input type="hidden" name="post_id" value="{{ post.id }}">
+								<input type="hidden" name="user_name" value="{{ request.user.username }}">
+								<input type="hidden" name="post_title" value="{{ post.title }}">
+								<input type="submit" name="submit" value="Post Your Comment" class="btn btn-primary btn-block">
+							</form>
+						{% else %}
+							<div class="alert alert-danger text-center"><b>You must <a href="{% url 'login' %}">Login</a> to post a comment</b></div>
+						{% endif %}
+
 					</div>
 				<div class="row mt-2">
 					{% for cmt in comments %}
 						<div class="col-lg-12">	
-							<b>{{cmt.user_id}} | {{cmt.date | naturaltime}} </b>
+							<b>{{cmt.user_name}} | {{cmt.date | naturaltime}} </b>
 						</div>
 						<div class="col-lg-12 m-l-3">	
 							{{cmt.comment}} <br><hr>
