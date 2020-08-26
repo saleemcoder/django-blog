@@ -88,11 +88,11 @@ DATABASES = {
         #'HOST': 'localhost',
 		
 		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'database-djano-blog.cuzvbeapncyk.us-east-2.rds.amazonaws.com',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-    
+		'NAME': 'database-djano-blog',
+        'USER': 'django_blog',
+        'PASSWORD': 'django_blog',
+        'HOST': 'database-djano-blog.cuzvbeapncyk.us-east-2.rds.amazonaws.com',
+		'PORT': '5432',
 	}
 }
 
