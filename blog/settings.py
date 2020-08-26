@@ -91,7 +91,7 @@ DATABASES = {
 		'NAME': 'django_db',
         'USER': 'djangoblog',
         'PASSWORD': 'djangoblog',
-        'HOST': 'arn:aws:rds:us-east-2:853028160486:db:my-django-db-server',
+        'HOST': 'my-django-db-server.cuzvbeapncyk.us-east-2.rds.amazonaws.com',
 		'PORT': '5432',
 	}
 }
